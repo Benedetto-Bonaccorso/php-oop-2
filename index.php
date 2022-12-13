@@ -1,5 +1,7 @@
 <?php
 
+    require_once 'img.php';
+
     class IsOnDiscount {
         public $value;
         public $percentage;
@@ -28,21 +30,21 @@
         public $category;
         public $section;
         
-        function __construct($name, $price, $isOnDiscount, $category, $section) {
+        function __construct($name, $price, $isOnDiscount, $category, $section, $img) {
             $this->name = $name;
             $this->price = $price;
             $this->isOnDiscount = $isOnDiscount;
             $this->category = $category;
             $this->section = $section;
-            
+            $this->img = $img;
         }
     }
 
     $shopArticles = [
-        $ciboPerCaniPurina4kg = new Article("Cibo Per Cani Purina 4kg", "29.99", new IsOnDiscount(true, "20%"), "dog", new Section("feed", "3")),
-        $cordaPerGatti = new Article("Corda Per Gatti", "3.99", new IsOnDiscount(false, "0%"), "cat", new Section("toys", "2")),
-        $ciboPerGattiUmido80gr = new Article("Cibo Per Gatti Umido 80gr", "0.99", new IsOnDiscount(false, "0%"), "cat", new Section("feed", "3")),
-        $pallaPerCriceti = new Article("Palla Per Criceti", "3.99", new IsOnDiscount(true, "50%"), "hamster", new Section("toys", "2")),
+        $ciboPerCaniPurina4kg = new Article("Cibo Per Cani Purina 4kg", "29.99", new IsOnDiscount(true, "20%"), "dog", new Section("feed", "3"), new Img("feed")),
+        $cordaPerGatti = new Article("Corda Per Gatti", "3.99", new IsOnDiscount(false, "0%"), "cat", new Section("toys", "2"), new Img("toys")),
+        $ciboPerGattiUmido80gr = new Article("Cibo Per Gatti Umido 80gr", "0.99", new IsOnDiscount(false, "0%"), "cat", new Section("feed", "3"), new Img("feed")),
+        $pallaPerCriceti = new Article("Palla Per Criceti", "3.99", new IsOnDiscount(true, "50%"), "hamster", new Section("toys", "2"), new Img("toys")),
     ];
 
     function locateArticles($shopArticles){
@@ -92,4 +94,3 @@
     <script src="./main.js" type="module"></script>
 </body>
 </html>
-
