@@ -45,8 +45,15 @@
         $pallaPerCriceti = new Article("Palla Per Criceti", "3.99", new IsOnDiscount(true, "50%"), "hamster", new Section("toys", "2")),
     ];
 
-//  echo json_encode($ciboPerCaniPurina4kg);
-//  echo json_encode($cordaPerGatti);
+    function locateArticles($shopArticles){
+        foreach ($shopArticles as $article) {
+            echo "<h1>";
+            echo $article->name;
+            echo "</h1>";
+        }
+    };
+
+    locateArticles($shopArticles);
 
 ?>
 
@@ -71,6 +78,7 @@
                             <h4 class="p-2"><?= $article->name ?></h4>
                             <p> <?= $article->price ?></p>
                             <p> for <?= $article->category?>s</p>
+
                         </div>
                     </div>
                 <?php endforeach ?>
